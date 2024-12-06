@@ -1,0 +1,137 @@
+
+.container {
+    width: 600px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.459);
+    padding: 5px 40px 40px 40px;
+    height: 800px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background: #ecf0f3d7;
+    box-shadow: 14px 14px 20px #164235, -14px -14px 20px #3C1642;
+}
+
+.container h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: -2px;
+    transition: 700ms ease;
+    font-variation-settings: "wght" 311;
+    margin-bottom: 0.8rem;
+    color: #3C1642;
+    outline: none;
+    text-align: center;
+}
+
+.container h1:hover{
+    letter-spacing: 1px;
+}
+
+.inputfield {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px auto;
+}
+
+.inputfield input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: 2px solid #164235;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 20px 45px 20px 25px;
+}
+
+.inputfield input::placeholder {
+    color: #164235;
+    font-weight: bold;
+}
+
+.inputfield .icon {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #fff;
+}
+
+.recallForget {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: 10px 15px 20px 15px;
+    align-items: center;  
+    flex-wrap: wrap;      
+}
+
+.recallForget label {
+    display: inline-flex;  
+    align-items: center;  
+    white-space: nowrap;   
+}
+
+.recallForget label input {
+    accent-color: #ffffff;
+    margin-right: 8px;  
+}
+
+.recallForget a, .signupLink a {
+    color: #164235;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.recallForget a:hover, .signupLink a:hover {
+    text-decoration: underline;
+    color: #3C1642;
+}
+
+.loginButton {
+        margin-top: 20px;
+        color: white;
+        margin-top: 20px; 
+        background: #3C1642;
+        height: 40px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 900;
+        transition: 0.5s;
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+}
+
+.loginButton:hover{
+    background: #164235;
+    font-size: 15px;
+}
+
+.signupLink {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+
+
+.logo{
+    width: 300px;
+    height: 300px;
+
+}
+
+.logocontainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}

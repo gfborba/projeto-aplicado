@@ -1,41 +1,42 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './GestorView.module.css';
 
 function GestorView() {
   const [employees, setEmployees] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(''); 
   const navigate = useNavigate();
+  const location = useLocation();
 
+  //Puxa os dados
   useEffect(() => {
-    const storedEmployees = JSON.parse(localStorage.getItem('employees')) || [];
-    setEmployees(storedEmployees);
-  }, []);
+    if (location.state?.searchResults) {
+      setEmployees(location.state.searchResults);
+    } else {
+      const storedEmployees = JSON.parse(localStorage.getItem('employees')) || [];
+      setEmployees(storedEmployees);
+    }
+  }, [location]);
 
-  // Função para filtrar os colaboradores por nome ou matrícula
-  const handleSearch = (searchTerm) => {
-    const storedEmployees = JSON.parse(localStorage.getItem('employees')) || [];
-    const filteredEmployees = storedEmployees.filter((employee) => 
-      employee.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      employee.matricula.includes(searchTerm)
-    );
-    setEmployees(filteredEmployees);
-  };
+  //Filtro local de colaboradores
+  const filteredEmployees = employees.filter((employee) =>
+    employee.nome.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    employee.matricula.includes(searchTerm)
+  );
 
   return (
     <section className={styles.employeeListContainer}>
       <h2>Colaboradores Registrados</h2>
-
-      {/* Campo de pesquisa */}
       <div className={styles.searchContainer}>
         <input
           type="text"
-          placeholder="Pesquise por nome ou matrícula"
-          onChange={(e) => handleSearch(e.target.value)}
+          placeholder="Pesquisar por Nome ou Matrícula"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)} //Atualiza o termo de pesquisa
           className={styles.searchInput}
         />
       </div>
 
-      {/* Tabela com os colaboradores */}
       <table className={styles.table}>
         <thead>
           <tr>
@@ -49,7 +50,7 @@ function GestorView() {
           </tr>
         </thead>
         <tbody>
-          {employees.map((employee, index) => (
+          {filteredEmployees.map((employee, index) => (
             <tr key={index}>
               <td>{employee.nome}</td>
               <td>{employee.funcao}</td>

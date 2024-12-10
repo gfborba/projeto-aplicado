@@ -6,15 +6,13 @@ function Search() {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
-  const [userRole, setUserRole] = useState(''); // Usamos o estado local para controlar o papel do usuário
-
-  // Recupera o papel do usuário do localStorage quando o componente é montado
+  const [userRole, setUserRole] = useState(''); //Uso do estado para definir o tipo de usuário
   useEffect(() => {
-    const storedRole = localStorage.getItem('userType');
-    setUserRole(storedRole); // Define o papel do usuário
+    const storedRole = localStorage.getItem('userType'); //Pega dentro da local storage o tipo de usuário
+    setUserRole(storedRole); // Define o tipo do usuário
   }, []);
 
-  const handleSearch = () => {
+  const handleSearch = () => { //Filtro por nome do colaborador
     const storedEmployees = JSON.parse(localStorage.getItem('employees')) || [];
 
     let filteredEmployees = storedEmployees;
@@ -26,19 +24,27 @@ function Search() {
       );
     }
 
-    // Armazena os resultados da pesquisa no localStorage
-    localStorage.setItem('searchResults', JSON.stringify(filteredEmployees));
-
-    // Navega para a página correta com base no papel do usuário
+    //De acordo com o filtro, direciona para admview ou gestorview
     if (userRole === 'admin') {
-      navigate('/admview'); // Administrador
+      navigate('/admview', { state: { searchResults: filteredEmployees } }); //Pagina de admin
     } else if (userRole === 'gestor') {
-      navigate('/gestorview'); // Gestor
+      navigate('/gestorview', { state: { searchResults: filteredEmployees } }); //Pagina de gestor
     }
   };
 
   const handleCadastro = () => {
     navigate('/register');
+  };
+
+  const handleSeeAll = () => {
+    const storedEmployees = JSON.parse(localStorage.getItem('employees')) || [];
+
+    //Manda para a página de todos os colaboradores, sem filtro
+    if (userRole === 'admin') {
+      navigate('/admview', { state: { searchResults: storedEmployees } }); 
+    } else if (userRole === 'gestor') {
+      navigate('/gestorview', { state: { searchResults: storedEmployees } }); 
+    }
   };
 
   return (
@@ -60,7 +66,7 @@ function Search() {
         >
           Pesquisar
         </button>
-        
+
         {/* Exibe o botão de Cadastro somente se o usuário for "admin" */}
         {userRole === 'admin' && (
           <button
@@ -68,6 +74,16 @@ function Search() {
             onClick={handleCadastro}
           >
             Cadastro
+          </button>
+        )}
+
+        {/* Exibe o botão "Ver todos" para os papéis admin e gestor */}
+        {(userRole === 'admin' || userRole === 'gestor') && (
+          <button
+            className={styles.see_all_button}
+            onClick={handleSeeAll}
+          >
+            Ver Todos
           </button>
         )}
       </div>

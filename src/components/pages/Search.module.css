@@ -16,7 +16,7 @@
     
 }
 
-.search_button, .cadastro_button{
+.search_button, .cadastro_button, .see_all_button{
     all: unset;
     height: 40px;
     border-radius: 5px;
@@ -27,7 +27,7 @@
     
 }
 
-.search_button:hover, .cadastro_button:hover{
+.search_button:hover, .cadastro_button:hover, .see_all_button:hover{
     transition: 0.2s;
     background-color: rgb(255, 255, 255);
     color: #3C1642 ;

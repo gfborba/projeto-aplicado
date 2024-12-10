@@ -11,31 +11,29 @@ const Login = () => {
 
   const formRef = useRef(null);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event) => { //Leva para a página de busca
     event.preventDefault(); 
     console.log("Dados de Login:", { username, password });
-    navigate("/search"); // Redireciona para a página de pesquisa após login
+    navigate("/search"); 
   };
 
-  const handleAdminLogin = (event) => {
+  const handleAdminLogin = (event) => { 
     event.preventDefault();
 
-    if (formRef.current.reportValidity()) {
-      // Salvar tipo de usuário como "admin" no localStorage
+    if (formRef.current.reportValidity()) { //Guarda a informação de login como ADMIN no localStorage
       localStorage.setItem('userType', 'admin');
       console.log("Login como administrador:", { username, password });
-      navigate("/search"); // Navegar para a página de pesquisa após login
+      navigate("/search"); 
     }
   };
 
   const handleGestorLogin = (event) => {
     event.preventDefault();
 
-    if (formRef.current.reportValidity()) {
-      // Salvar tipo de usuário como "gestor" no localStorage
+    if (formRef.current.reportValidity()) { //Guarda a informação de login como GESTOR no localStorage
       localStorage.setItem('userType', 'gestor');
       console.log("Login como gestor:", { username, password });
-      navigate("/search"); // Navegar para a página de pesquisa após login
+      navigate("/search");
     }
   };
 
@@ -52,7 +50,7 @@ const Login = () => {
           <input
             type="text"
             placeholder="E-mail"
-            required 
+            required //Faz com que o campo seja obrigatoriamente preenchido
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />

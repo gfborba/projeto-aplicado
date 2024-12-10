@@ -1,10 +1,9 @@
-
 .container {
-    width: 600px;
+    width: 450px; 
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.459);
-    padding: 5px 40px 40px 40px;
-    height: 800px;
+    padding: 2px 30px 15px 30px; 
+    height: 580px; 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 20px;
     box-sizing: border-box;
@@ -13,27 +12,27 @@
 }
 
 .container h1 {
-    font-size: 40px;
+    font-size: 30px; 
     text-transform: uppercase;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    letter-spacing: -2px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: -1.5px; 
     transition: 700ms ease;
     font-variation-settings: "wght" 311;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem; 
     color: #3C1642;
     outline: none;
     text-align: center;
 }
 
-.container h1:hover{
+.container h1:hover {
     letter-spacing: 1px;
 }
 
 .inputfield {
     position: relative;
     width: 100%;
-    height: 50px;
-    margin: 30px auto;
+    height: 37.5px; 
+    margin: 22.5px auto; 
 }
 
 .inputfield input {
@@ -43,9 +42,9 @@
     outline: none;
     border: 2px solid #164235;
     border-radius: 40px;
-    font-size: 16px;
-    color: #ffffff;
-    padding: 20px 45px 20px 25px;
+    font-size: 12px; 
+    color: #164235;
+    padding: 15px 33.75px 15px 18.75px; 
 }
 
 .inputfield input::placeholder {
@@ -55,18 +54,18 @@
 
 .inputfield .icon {
     position: absolute;
-    right: 25px;
+    right: 18.75px; 
     top: 50%;
     transform: translateY(-50%);
-    font-size: 16px;
+    font-size: 12px; 
     color: #fff;
 }
 
 .recallForget {
     display: flex;
     justify-content: space-between;
-    font-size: 14.5px;
-    margin: 10px 15px 20px 15px;
+    font-size: 10.9px; 
+    margin: 7.5px 11.25px 15px 11.25px; 
     align-items: center;  
     flex-wrap: wrap;      
 }
@@ -78,8 +77,8 @@
 }
 
 .recallForget label input {
-    accent-color: #ffffff;
-    margin-right: 8px;  
+    accent-color: #000000;
+    margin-right: 6px;  
 }
 
 .recallForget a, .signupLink a {
@@ -94,43 +93,39 @@
 }
 
 .loginButton {
-        margin-top: 20px;
-        color: white;
-        margin-top: 20px; 
-        background: #3C1642;
-        height: 40px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-weight: 900;
-        transition: 0.5s;
-        display: block;
-        width: 100%;
-        padding: 0;
-        border: none;
-        outline: none;
-        box-sizing: border-box;
+    margin-top: 15px; 
+    color: white;
+    background: #3C1642;
+    height: 30px; 
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 900;
+    transition: 0.5s;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
 }
 
-.loginButton:hover{
+.loginButton:hover {
     background: #164235;
-    font-size: 15px;
+    font-size: 12px; 
 }
 
 .signupLink {
-    font-size: 14.5px;
+    font-size: 10.9px; 
     text-align: center;
-    margin: 20px 0 15px;
+    margin: 15px 0 11.25px; 
 }
 
-
-
-.logo{
-    width: 300px;
-    height: 300px;
-
+.logo {
+    width: 230px; 
+    height: 230px; 
 }
 
-.logocontainer{
+.logocontainer {
     width: 100%;
     display: flex;
     align-items: center;

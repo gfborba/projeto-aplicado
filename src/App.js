@@ -1,30 +1,31 @@
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/pages/Login';
 import Search from './components/pages/Search';
-import Products from './components/pages/Products';
-import Contact from './components/pages/Contact';
+import Register from './components/pages/Register';
+import AdmView from './components/pages/AdmView';
+import GestorView from './components/pages/GestorView';  // Importação da página GestorView
 
 import Container from './components/layout/Container'
-import Navbar from './components/layout/Navbar'
-import Footer from './components/layout/Footer'
+import Navbar from './components/layout/Navbar';
 
 function App() {
   return (
     <Router>
-     <Navbar />
+      <Navbar />
 
-      <Container customClass = "min-height">
+        <Container>
+
+       
         <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/admview" element={<AdmView />} />
+          <Route path="/gestorview" element={<GestorView />} />  {/* Nova rota para GestorView */}
+        </Routes>
 
-      
       </Container>
-      
-      <Footer />
+
     </Router>
   );
 }

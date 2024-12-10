@@ -14,15 +14,28 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault(); 
     console.log("Dados de Login:", { username, password });
-    navigate("/search");
+    navigate("/search"); // Redireciona para a página de pesquisa após login
   };
 
   const handleAdminLogin = (event) => {
     event.preventDefault();
 
     if (formRef.current.reportValidity()) {
+      // Salvar tipo de usuário como "admin" no localStorage
+      localStorage.setItem('userType', 'admin');
       console.log("Login como administrador:", { username, password });
-      navigate("/products");
+      navigate("/search"); // Navegar para a página de pesquisa após login
+    }
+  };
+
+  const handleGestorLogin = (event) => {
+    event.preventDefault();
+
+    if (formRef.current.reportValidity()) {
+      // Salvar tipo de usuário como "gestor" no localStorage
+      localStorage.setItem('userType', 'gestor');
+      console.log("Login como gestor:", { username, password });
+      navigate("/search"); // Navegar para a página de pesquisa após login
     }
   };
 
@@ -32,7 +45,6 @@ const Login = () => {
         <img src={Logo} alt="logo" className={styles.logo} />
       </picture>
 
-      
       <form ref={formRef} onSubmit={handleSubmit}>
         <h1>Acesse o sistema</h1>
 
@@ -64,15 +76,20 @@ const Login = () => {
           <a href="#">Esqueceu sua senha?</a>
         </div>
 
-        <button className={styles.loginButton} type="submit">
-          Login
+        <button
+          className={styles.loginButton}
+          type="button"
+          onClick={handleGestorLogin}
+        >
+          Login como Gestor
         </button>
+
         <button
           className={styles.loginButton}
           type="button"
           onClick={handleAdminLogin}
         >
-          Login como administrador
+          Login como Administrador
         </button>
 
         <div className={styles.signupLink}>
